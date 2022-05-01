@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-28 11:52+0200\n"
-"PO-Revision-Date: 2022-03-06 22:07+0100\n"
+"PO-Revision-Date: 2022-05-01 20:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -131,7 +131,7 @@ msgstr "RTMP Protokoll Implementierung"
 
 #: ../plugin/plugin.py:183
 msgid "Select sink which you want to use."
-msgstr ""
+msgstr "Wählen Sie den Sink der verwendet werden soll."
 
 #: ../plugin/plugin.py:247
 msgid "Select the player which will be used for Enigma2 playback."
