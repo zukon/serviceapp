@@ -390,7 +390,7 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-    if menuid == "system":
+    if menuid == "rec":
         return [(_("ServiceApp"), main, "serviceapp_setup", None)]
     return []
 
