@@ -5,6 +5,8 @@ from __future__ import print_function
 import os
 import json
 
+from boxbranding import getImageDistro
+
 from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigListScreen
 from Components.Console import Console
@@ -390,9 +392,13 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-    if menuid == "rec":
-        return [(_("ServiceApp"), main, "serviceapp_setup", None)]
-    return []
+    if getImageDistro() in ("openhdf"):
+        if menuid != "system":
+            return []
+    else:
+        if menuid == "rec":
+            return []
+    return [(_("ServiceApp"), main, "serviceapp_setup", None)]
 
 
 def play_exteplayer3(session, service, **kwargs):
