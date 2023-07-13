@@ -393,12 +393,12 @@ def main(session, **kwargs):
 
 def menu(menuid, **kwargs):
     if getImageDistro() in ("openhdf"):
-        if menuid != "system":
-            return []
+        if menuid == "system":
+            return [(_("ServiceApp"), main, "serviceapp_setup", None)]
     else:
         if menuid == "rec":
-            return []
-    return [(_("ServiceApp"), main, "serviceapp_setup", None)]
+            return [(_("ServiceApp"), main, "serviceapp_setup", None)]
+    return []
 
 
 def play_exteplayer3(session, service, **kwargs):
