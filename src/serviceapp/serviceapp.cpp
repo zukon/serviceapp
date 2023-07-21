@@ -907,22 +907,14 @@ RESULT eServiceApp::getTrackInfo(iAudioTrackInfo& trackInfo, unsigned int n)
 	std::string desc = track.description;
 
 	std::map<std::string, std::string> audioReplacements = {
-		{"A ", ""},
 		{"A_", ""},
 		{"EAC3", "AC3+"},
-		{"EAC-3", "AC3+"},
-		{"E-AC3", "AC3+"},
-		{"E-AC-3", "AC3+"},
-		{"AC-3", "AC3"},
-		{"MPEG4-AAC", "HE-AAC"},
-		{"MPEG-4 ", "HE-"},
-		{" AAC", "AAC"},
-		{"A_MPEG/l3", "MPEG"},
-		{"MPEG-1", "MPEG"},
-		{"MPEG-2AAC", "AAC"},
-		{"(ATSC A/52)", ""},
-		{"(ATSC A/52B)", ""},
-		{" audio", ""}};
+		{"A_MPEG/L3", "MPEG2"},
+		{"IPCM", "AC3+"},
+		{"LPCM", "AC3+"},
+		{"AAC_PLUS", "AAC+"},
+		{"AAC_LATM", "AAC"},
+		{"WMA/PRO", "WMA Pro"}};
 
 	if (!desc.empty())
 	{
