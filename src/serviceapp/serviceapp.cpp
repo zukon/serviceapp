@@ -895,7 +895,7 @@ RESULT eServiceApp::selectTrack(unsigned int i)
 	return 0;
 }
 
-RESULT eServiceApp::getTrackInfo(iAudioTrackInfo& trackInfo, unsigned int n)
+RESULT eServiceApp::getTrackInfo(iAudioTrackInfo &trackInfo, unsigned int n)
 {
 	eDebug("eServiceApp::getTrackInfo = %d", n);
 	audioStream track;
@@ -909,8 +909,8 @@ RESULT eServiceApp::getTrackInfo(iAudioTrackInfo& trackInfo, unsigned int n)
 	std::map<std::string, std::string> audioReplacements = {
 		{"A_", ""},
 		{"EAC3", "AC3+"},
-		{"A_MPEG/L3", "MPEG2"},
-		{"IPCM", "AC3+"},
+		{"MPEG/L3", "AAC"},
+		{"IPCM", "AC3"},
 		{"LPCM", "AC3+"},
 		{"AAC_PLUS", "AAC+"},
 		{"AAC_LATM", "AAC"},
@@ -1721,7 +1721,6 @@ static PyMethodDef serviceappMethods[] = {
 	 {NULL,NULL,0,NULL}
 };
 
-#if PY_MAJOR_VERSION >= 3
 static struct PyModuleDef moduledef = {
 	PyModuleDef_HEAD_INIT,
 	"serviceapp",         /* m_name */
@@ -1753,25 +1752,3 @@ PyMODINIT_FUNC PyInit_serviceapp(void)
 	SSL_library_init();
 	return PyModule_Create(&moduledef);
 }
-#else
-PyMODINIT_FUNC
-initserviceapp(void)
-{
-	Py_InitModule("serviceapp", serviceappMethods);
-	g_GstPlayerOptionsServiceMP3 = new GstPlayerOptions();
-	g_GstPlayerOptionsServiceGst = new GstPlayerOptions();
-	g_GstPlayerOptionsUser = new GstPlayerOptions();
-
-	g_ExtEplayer3OptionsServiceMP3 = new ExtEplayer3Options();
-	g_ExtEplayer3OptionsServiceExt3 = new ExtEplayer3Options();
-	g_ExtEplayer3OptionsUser = new ExtEplayer3Options();
-
-	g_ServiceAppOptionsServiceMP3 = new eServiceAppOptions();
-	g_ServiceAppOptionsServiceExt3 = new eServiceAppOptions();
-	g_ServiceAppOptionsServiceGst = new eServiceAppOptions();
-	g_ServiceAppOptionsUser = new eServiceAppOptions();
-
-	SSL_load_error_strings();
-	SSL_library_init();
-}
-#endif
