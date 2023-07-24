@@ -20,22 +20,27 @@ struct eServiceAppOptions
 	bool HLSExplorer;
 	bool autoSelectStream;
 	unsigned int connectionSpeedInKb;
-	eServiceAppOptions():
-		autoTurnOnSubtitles(true),
-		preferEmbeddedSubtitles(false),
-		HLSExplorer(true), 
-		autoSelectStream(true),
-		connectionSpeedInKb(std::numeric_limits<unsigned int>::max())
-	{};
+	eServiceAppOptions() : autoTurnOnSubtitles(true),
+						   preferEmbeddedSubtitles(false),
+						   HLSExplorer(true),
+						   autoSelectStream(true),
+						   connectionSpeedInKb(std::numeric_limits<unsigned int>::max()){};
 };
 
 #if SIGCXX_MAJOR_VERSION == 2
-class eServiceApp: public sigc::trackable,
+class eServiceApp : public sigc::trackable,
 #else
-class eServiceApp: public Object,
+class eServiceApp : public Object,
 #endif
-	public iPlayableService, public iPauseableService, public iSeekableService, public iStreamedService,
-	public iAudioChannelSelection, public iAudioTrackSelection,  public iSubtitleOutput, public iSubserviceList, public iServiceInformation
+					public iPlayableService,
+					public iPauseableService,
+					public iSeekableService,
+					public iStreamedService,
+					public iAudioChannelSelection,
+					public iAudioTrackSelection,
+					public iSubtitleOutput,
+					public iSubserviceList,
+					public iServiceInformation
 {
 	DECLARE_REF(eServiceApp);
 
@@ -47,9 +52,9 @@ class eServiceApp: public Object,
 	void fillSubservices();
 
 #if SIGCXX_MAJOR_VERSION == 2
-	sigc::signal2<void,iPlayableService*,int> m_event;
+	sigc::signal2<void, iPlayableService *, int> m_event;
 #else
-	Signal2<void,iPlayableService*,int> m_event;
+	Signal2<void, iPlayableService *, int> m_event;
 #endif
 	eServiceAppOptions *options;
 	PlayerBackend *player;
@@ -105,33 +110,103 @@ public:
 
 	// iPlayableService
 #if SIGCXX_MAJOR_VERSION == 2
-	RESULT connectEvent(const sigc::slot2<void,iPlayableService*,int> &event, ePtr<eConnection> &connection);
+	RESULT connectEvent(const sigc::slot2<void, iPlayableService *, int> &event, ePtr<eConnection> &connection);
 #else
-	RESULT connectEvent(const Slot2<void,iPlayableService*,int> &event, ePtr<eConnection> &connection);
+	RESULT connectEvent(const Slot2<void, iPlayableService *, int> &event, ePtr<eConnection> &connection);
 #endif
 	RESULT start();
 	RESULT stop();
 #if OPENPLI_ISERVICE_VERSION > 1
-	RESULT setTarget(int target, bool noaudio=false){return -1;}
+	RESULT setTarget(int target, bool noaudio = false)
+	{
+		return -1;
+	}
 #else
-	RESULT setTarget(int target){return -1;}
+	RESULT setTarget(int target)
+	{
+		return -1;
+	}
 #endif
-	RESULT seek(ePtr<iSeekableService> &ptr){ ptr=this; return 0;};
-	RESULT pause(ePtr<iPauseableService> &ptr){ ptr=this; return 0;};
-	RESULT audioTracks(ePtr<iAudioTrackSelection> &ptr) { ptr=this; return 0;};
-	RESULT audioChannel(ePtr<iAudioChannelSelection> &ptr) { ptr=this; return 0;};
-	RESULT info(ePtr<iServiceInformation> &ptr) { ptr=this; return 0;};
-	RESULT subServices(ePtr<iSubserviceList> &ptr){ ptr=this; return 0;};
-	RESULT frontendInfo(ePtr<iFrontendInformation> &ptr){ ptr=0; return -1;};
-	RESULT timeshift(ePtr<iTimeshiftService> &ptr){ ptr=0; return -1;};
-	RESULT tap(ePtr<iTapService> &ptr) { ptr = nullptr; return -1; };
-	RESULT cueSheet(ePtr<iCueSheet> &ptr){ ptr=0; return -1;};
-	RESULT subtitle(ePtr<iSubtitleOutput> &ptr){ ptr=this; return 0;};
-	RESULT audioDelay(ePtr<iAudioDelay> &ptr){ ptr=0; return -1;};
-	RESULT rdsDecoder(ePtr<iRdsDecoder> &ptr){ ptr=0; return -1;};
-	RESULT stream(ePtr<iStreamableService> &ptr){ ptr=0; return -1;};
-	RESULT streamed(ePtr<iStreamedService> &ptr){ ptr=this; return 0;};
-	RESULT keys(ePtr<iServiceKeys> &ptr){ ptr=0; return -1;};
+	RESULT seek(ePtr<iSeekableService> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT pause(ePtr<iPauseableService> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT audioTracks(ePtr<iAudioTrackSelection> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT audioChannel(ePtr<iAudioChannelSelection> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT info(ePtr<iServiceInformation> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT subServices(ePtr<iSubserviceList> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT frontendInfo(ePtr<iFrontendInformation> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT timeshift(ePtr<iTimeshiftService> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT tap(ePtr<iTapService> &ptr)
+	{
+		ptr = nullptr;
+		return -1;
+	};
+	RESULT cueSheet(ePtr<iCueSheet> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT subtitle(ePtr<iSubtitleOutput> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT audioDelay(ePtr<iAudioDelay> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT rdsDecoder(ePtr<iRdsDecoder> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT stream(ePtr<iStreamableService> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT streamed(ePtr<iStreamedService> &ptr)
+	{
+		ptr = this;
+		return 0;
+	};
+	RESULT keys(ePtr<iServiceKeys> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
 	void setQpipMode(bool value, bool audio){};
 
 	// iPausableService
@@ -149,8 +224,8 @@ public:
 	RESULT isCurrentlySeekable();
 
 	// iStreamedService
-	ePtr<iStreamBufferInfo> getBufferCharge(){ return 0; };
-	int setBufferSize(int size){ (void)size; }
+	ePtr<iStreamBufferInfo> getBufferCharge() { return 0; };
+	int setBufferSize(int size) { (void)size; }
 
 	// iAudioTrackSelection
 	int getNumberOfTracks();
@@ -183,11 +258,12 @@ public:
 
 class eServiceFactoryApp;
 
-class eStaticServiceAppInfo: public iStaticServiceInformation
+class eStaticServiceAppInfo : public iStaticServiceInformation
 {
 	DECLARE_REF(eStaticServiceAppInfo);
 	friend class eServiceFactoryApp;
 	eStaticServiceAppInfo(){};
+
 public:
 	RESULT getName(const eServiceReference &ref, std::string &name);
 	int getLength(const eServiceReference &ref);
@@ -197,24 +273,42 @@ public:
 	RESULT getEvent(const eServiceReference &ref, ePtr<eServiceEvent> &ptr, time_t start_time);
 };
 
-class eServiceFactoryApp: public iServiceHandler
+class eServiceFactoryApp : public iServiceHandler
 {
 	DECLARE_REF(eServiceFactoryApp);
 	ePtr<eStaticServiceAppInfo> m_service_info;
+
 public:
 	eServiceFactoryApp();
 	virtual ~eServiceFactoryApp();
-	enum { 
+	enum
+	{
 		idServiceMP3 = 4097,
 		idServiceGstPlayer = 5001,
 		idServiceExtEplayer3 = 5002
 	};
 
 	// iServiceHandler
-	RESULT play(const eServiceReference &ref, ePtr<iPlayableService> &ptr){ptr = new eServiceApp(ref); return 0;};
-	RESULT record(const eServiceReference &, ePtr<iRecordableService> &ptr){ptr=0;return -1;};
-	RESULT list(const eServiceReference &, ePtr<iListableService> &ptr){ptr=0;return -1;};
-	RESULT info(const eServiceReference &, ePtr<iStaticServiceInformation> &ptr){ptr=m_service_info; return 0;};
+	RESULT play(const eServiceReference &ref, ePtr<iPlayableService> &ptr)
+	{
+		ptr = new eServiceApp(ref);
+		return 0;
+	};
+	RESULT record(const eServiceReference &, ePtr<iRecordableService> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT list(const eServiceReference &, ePtr<iListableService> &ptr)
+	{
+		ptr = 0;
+		return -1;
+	};
+	RESULT info(const eServiceReference &, ePtr<iStaticServiceInformation> &ptr)
+	{
+		ptr = m_service_info;
+		return 0;
+	};
 	RESULT offlineOperations(const eServiceReference &, ePtr<iServiceOfflineOperations> &ptr);
 };
 #endif
