@@ -60,9 +60,9 @@ static eServiceAppOptions *g_ServiceAppOptionsServiceGst;
 static eServiceAppOptions *g_ServiceAppOptionsUser;
 
 static const std::string gReplaceServiceMP3Path = eEnv::resolve("$sysconfdir/enigma2/serviceapp_replaceservicemp3");
-static const bool gReplaceServiceMP3 = ( access( gReplaceServiceMP3Path.c_str(), F_OK ) != -1 );
+static const bool gReplaceServiceMP3 = (access(gReplaceServiceMP3Path.c_str(), F_OK) != -1);
 
-static HeaderMap getHttpHeaders(const std::string& path)
+static HeaderMap getHttpHeaders(const std::string &path)
 {
 	HeaderMap headers = getHeaders(path);
 	for (HeaderMap::iterator it(headers.begin()); it != headers.end();)
@@ -86,10 +86,10 @@ static void updatePlayerOptions(IOption &options, const HeaderMap &headers)
 	}
 }
 
-static BasePlayer *createPlayer(const eServiceReference& ref, const HeaderMap &headers)
+static BasePlayer *createPlayer(const eServiceReference &ref, const HeaderMap &headers)
 {
 	BasePlayer *player = NULL;
-	if (ref.type == eServiceFactoryApp::idServiceExtEplayer3 || (ref.type == eServiceFactoryApp::idServiceMP3 && g_playerServiceMP3 == EXTEPLAYER3) )
+	if (ref.type == eServiceFactoryApp::idServiceExtEplayer3 || (ref.type == eServiceFactoryApp::idServiceMP3 && g_playerServiceMP3 == EXTEPLAYER3))
 	{
 		ExtEplayer3Options options;
 		if (g_useUserSettings)
@@ -101,7 +101,7 @@ static BasePlayer *createPlayer(const eServiceReference& ref, const HeaderMap &h
 		updatePlayerOptions(options, headers);
 		player = new ExtEplayer3(options);
 	}
-	else if (ref.type == eServiceFactoryApp::idServiceGstPlayer || (ref.type == eServiceFactoryApp::idServiceMP3 && g_playerServiceMP3 == GSTPLAYER) )
+	else if (ref.type == eServiceFactoryApp::idServiceGstPlayer || (ref.type == eServiceFactoryApp::idServiceMP3 && g_playerServiceMP3 == GSTPLAYER))
 	{
 		GstPlayerOptions options;
 		if (g_useUserSettings)
@@ -1678,8 +1678,6 @@ serviceapp_set_setting(PyObject *self, PyObject *args)
 	}
 	return Py_BuildValue("b", ret);
 }
-
-
 
 static PyMethodDef serviceappMethods[] = {
 	{"use_user_settings", use_user_settings, METH_NOARGS,
