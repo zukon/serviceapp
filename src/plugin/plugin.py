@@ -392,7 +392,7 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-    if getImageDistro() in ("openhdf"):
+    if getImageDistro() in ("openhdf", "teamblue"):
         if menuid == "system":
             return [(_("ServiceApp"), main, "serviceapp_setup", None)]
     else:
