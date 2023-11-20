@@ -5,7 +5,6 @@ from __future__ import print_function
 import os
 import json
 
-from boxbranding import getImageDistro
 
 from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigListScreen
@@ -23,6 +22,12 @@ from enigma import eEnv, eServiceReference
 from . import _
 from . import serviceapp_client
 
+try:
+    from Components.SystemInfo import BoxInfo
+    IMAGEDISTRO = BoxInfo.getItem("distro")
+except:
+    from boxbranding import getImageDistro
+    IMAGEDISTRO = getImageDistro()
 
 SINKS_DEFAULT = ("", "")
 SINKS_EXPERIMENTAL = ("dvbvideosinkexp", "dvbaudiosinkexp")
@@ -392,7 +397,7 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-    if getImageDistro() in ("openhdf", "teamblue"):
+    if IMAGEDISTRO in ("openhdf", "teamblue"):
         if menuid == "system":
             return [(_("ServiceApp"), main, "serviceapp_setup", None)]
     else:
