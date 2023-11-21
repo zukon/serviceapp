@@ -24,7 +24,7 @@ int parse_attribute(char **ptr, char **key, char **value)
     if (ptr == NULL || *ptr == NULL || key == NULL || value == NULL)
         return -1;
 
-    char *end; 
+    char *end;
     char *p;
     p = end = strchr(*ptr, ',');
     if (end)

@@ -132,10 +132,10 @@ public:
 	virtual void recvSeekTo(int status, int seconds){};
 	virtual void recvSeekRelative(int status, int seconds){};
 	virtual void recvAudioTracksList(int status, std::vector<audioStream>&){};
-	virtual void recvAudioTrackCurrent(int status, audioStream&){}; 
+	virtual void recvAudioTrackCurrent(int status, audioStream&){};
 	virtual void recvAudioTrackSelected(int status, int trackId){};
 	virtual void recvSubtitleTracksList(int status, std::vector<subtitleStream>&){};
-	virtual void recvSubtitleTrackCurrent(int status, subtitleStream&){}; 
+	virtual void recvSubtitleTrackCurrent(int status, subtitleStream&){};
 	virtual void recvSubtitleTrackSelected(int status, int trackId){};
 	virtual void recvSubtitleMessage(subtitleMessage&){};
 	virtual void recvVideoTrackCurrent(int status, videoStream&){};
@@ -150,7 +150,7 @@ class BasePlayer: public iPlayerSend, public iPlayerCallback
 protected:
 	std::string mPath;
 	std::map<std::string, std::string> mHeaders;
-	
+
 	void recvStarted(int status){pCallback->recvStarted(status);};
 	void recvStopped(int status){pCallback->recvStopped(status);};
 	void recvPaused(int status){pCallback->recvPaused(status);};
@@ -261,11 +261,11 @@ class PlayerBackend: public Object, public eThread, public eMainloop, public iPl
 
 	void sendMessage(const Message& m, int timeout=0);
 	void recvMessage();
-	
+
 	// eThread
 	void thread();
 	void thread_finished();
-	
+
 	// iPlayerCallback
 	void recvStarted(int status);
 	void recvStopped(int status);
