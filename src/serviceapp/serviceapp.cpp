@@ -226,7 +226,10 @@ eServiceApp::eServiceApp(eServiceReference ref):
 	m_decoder_time_valid_state(0)
 {
 	options = createOptions(ref);
-	extplayer = createPlayer(ref, getHeaders(ref.path));
+	if(!ref.alternativeurl.empty())
+		m_ref.path = ref.alternativeurl;
+
+	extplayer = createPlayer(ref, getHeaders(m_ref.path));
 	player = new PlayerBackend(extplayer);
 
 	m_subtitle_widget = 0;
