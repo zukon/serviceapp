@@ -678,7 +678,7 @@ void eServiceApp::gotExtPlayerMessage(int message)
 #if SIGCXX_MAJOR_VERSION == 2
 RESULT eServiceApp::connectEvent(const sigc::slot2< void, iPlayableService*, int >& event, ePtr< eConnection >& connection)
 #else
-RESULT eServiceApp::connectEvent(const Slot2< void, iPlayableService*, int >& event, ePtr< eConnection >& connection)
+RESULT eServiceApp::connectEvent(const sigc::slot<void(iPlayableService*,int)>& event, ePtr< eConnection >& connection)
 #endif
 {
 	connection = new eConnection((iPlayableService*)this, m_event.connect(event));
@@ -1321,6 +1321,20 @@ std::string eServiceApp::getInfoString(int w)
 {
 	switch (w)
 	{
+	case sVideoInfo:
+	{
+		char buff[100];
+		snprintf(buff, sizeof(buff), "%d|%d|%d|%d|%d|%d",
+				m_width,
+				m_height,
+				m_framerate,
+				m_progressive,
+				getInfo(sAspect),
+				-1
+				);
+		std::string videoInfo = buff;
+		return videoInfo;
+	}
 	case sProvider:
 		return m_ref.path.find("://") != std::string::npos ? "IPTV" : "FILE";
 	case sServiceref:
