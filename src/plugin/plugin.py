@@ -397,7 +397,7 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-    if IMAGEDISTRO in ("openhdf", "teamblue"):
+    if IMAGEDISTRO in ("openhdf", "teamblue", "zukonMOD"):
         if menuid == "system":
             return [(_("ServiceApp"), main, "serviceapp_setup", None)]
     else:

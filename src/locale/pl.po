@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2023-03-25 20:10+0100\n"
+"Last-Translator: sq9, Karol Sz <sq9hhc@op.pl, kaolsz@interia.pl>\n"
+"Language-Team: Polish\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: .\n"
+
+msgid "AAC software decoding"
+msgstr "Dekoduj softwarowo AAC"
+
+msgid "AC3 software decoding"
+msgstr "Dekoduj softwarowo AC3"
+
+msgid "Auto select stream"
+msgstr "Automatycznie wybierz stream"
+
+msgid "Auto turn on subtitles"
+msgstr "Automatycznie włącz napisy"
+
+msgid "Automatically turn on subtitles if available."
+msgstr "Automatycznie włącz napisy jeżli dostępne."
+
+msgid "Buffer duration"
+msgstr "Czas trwania bufora"
+
+msgid "Buffer size"
+msgstr "Wielkość bufora"
+
+msgid "Cancel"
+msgstr "Przerwać"
+
+msgid "Connection speed"
+msgstr "Szybkość połączenia"
+
+msgid "DTS software decoding"
+msgstr "Dekoduj softwarowo DTS"
+
+msgid "Detecting exteplayer3 player ..."
+msgstr "Detekcja exteplayer3 player ..."
+
+msgid "Detecting gstreamer player ..."
+msgstr "Detekcja gstreamer player ..."
+
+msgid "EAC3 software decoding"
+msgstr "Dekoduj softwarowo EAC3"
+
+msgid "Embedded subtitles"
+msgstr "Wbudowane napisy"
+
+msgid "Enigma2 playback system"
+msgstr "Systemowy odtwarzacz Enigma2"
+
+msgid ""
+"Enigma2 playback system was changed and Enigma2 should be restarted\n"
+"\n"
+"Do you want to restart it now?"
+msgstr ""
+"Odtwarzacz Systemowy został zmieniony konieczny restart GUI\n"
+"\n"
+"Restart teraz?"
+
+msgid "ExtEplayer3"
+msgstr "ExtEplayer3"
+
+msgid "GstPlayer"
+msgstr "GstPlayer"
+
+msgid "HLS Explorer"
+msgstr "HLS Explorer"
+
+msgid "LPCM injection"
+msgstr "LPCM injection"
+
+msgid "MP3 software decoding"
+msgstr "Dekoduj softwarowo MP3"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Play with ServiceExtEplayer3"
+msgstr "Odtwarzaj z ServiceExtEplayer3"
+
+msgid "Play with ServiceGstPlayer"
+msgstr "Odtwarzaj z ServiceGstPlayer"
+
+msgid "Player"
+msgstr "Odtwarzacz"
+
+msgid "RTMP protocol implementation"
+msgstr "Implementacja protokołu RTMP"
+
+msgid "Select sink which you want to use."
+msgstr "Wybierz sink którego chcesz użyć."
+
+msgid "Select the player which will be used for Enigma2 playback."
+msgstr "Wybierz odtwarzacz, który będzie używany do odtwarzania w Enigma2."
+
+msgid ""
+"Select the player which will be used in serviceapp for Enigma2 playback."
+msgstr ""
+"Wybierz odtwarzacz, który będzie używany w serviceapp do odtwarzania w "
+"Enigma2."
+
+msgid "ServiceApp"
+msgstr "ServiceApp"
+
+msgid "ServiceExtEplayer3 (%s)"
+msgstr "ServiceExtEplayer3 (%s)"
+
+msgid "ServiceGstPlayer (%s)"
+msgstr "ServiceGstPlayer (%s)"
+
+msgid "ServiceMp3 (%s)"
+msgstr "ServiceMp3 (%s)"
+
+msgid "Set buffer duration in seconds."
+msgstr "Ustaw czas trwania bufora w sekundach."
+
+msgid "Set buffer size in kilobytes."
+msgstr "Ustaw wielkość bufora w kb."
+
+msgid ""
+"Set connection speed in kb/s, according to which you want to have streams "
+"auto-selected"
+msgstr ""
+"Ustaw prędkość połączenia w kb/s, według której chcesz strumieniować "
+"automatyczny wybór"
+
+msgid ""
+"Set which RTMP protocol implementation will be used for playback of RTMP "
+"streams"
+msgstr ""
+"Ustaw, która implementacja protokołu RTMP będzie używana do odtwarzania RTMP-"
+"używany strumień"
+
+msgid ""
+"Software decoder use LPCM for injection (otherwise wav PCM will be used)"
+msgstr ""
+"Dekoder programowy używa LPCM do próbkowania (w przeciwnym razie zostanie "
+"użyty wav PCM)"
+
+msgid "Stereo downmix"
+msgstr "Stereo downmix"
+
+msgid "Stop playing this movie?"
+msgstr "Zatrzymać Film?"
+
+msgid "To AAC ADTS"
+msgstr "Do AAC ADTS"
+
+msgid "To AAC LATM"
+msgstr "Do AAC LATM"
+
+msgid "Turn on AAC software decoding."
+msgstr "Włącz dekodowanie softwarowe AAC."
+
+msgid "Turn on AC3 software decoding."
+msgstr "Włącz dekodowanie softwarowe AC3."
+
+msgid "Turn on DTS software decoding."
+msgstr "Włącz dekodowanie softwarowe DTS."
+
+msgid "Turn on EAC3 software decoding."
+msgstr "Włącz dekodowanie softwarowe EAC3."
+
+msgid "Turn on MP3 software decoding."
+msgstr "Włącz dekodowanie softwarowe MP3."
+
+msgid "Turn on WMA1, WMA2, WMA/PRO software decoding."
+msgstr "Włącz dekodowanie softwarowe WMA1, WMA2, WMA/PRO."
+
+msgid "Turn on auto-selection of streams according to set Connection speed."
+msgstr ""
+"Włącz automatyczny wybór strumieni zgodnie z ustawioną szybkością połączenia."
+
+msgid "Turn on downmix to stereo, when software decoding is in use"
+msgstr "Włącz downmix do stereo, gdy używane jest dekodowanie softwarowe"
+
+msgid ""
+"Turn on explorer to retrieve different quality streams from HLS variant "
+"playlist and select them via subservices."
+msgstr ""
+"Włącz Eksploratora, aby pobrać strumienie o różnej jakości z wariantu HLS "
+"listy odtwarzania i wybieraj je za pośrednictwem podserwisów."
+
+msgid "Turn on the embedded subtitles support."
+msgstr "Włącz obsługę osadzonych napisów."
+
+msgid "WMA software decoding"
+msgstr "Dekoduj softwarowo WMA"
+
+msgid "experimental"
+msgstr "eksperymentalne"
+
+msgid "exteplayer3"
+msgstr "exteplayer3"
+
+msgid "false"
+msgstr "nie"
+
+msgid "gstplayer"
+msgstr "gstplayer"
+
+msgid "not installed"
+msgstr "nie zainstalowany"
+
+msgid "off"
+msgstr "wył"
+
+msgid "original"
+msgstr "oryginalny"
+
+msgid "serviceapp"
+msgstr "serviceapp"
+
+msgid "setup player framework"
+msgstr "ustawienia framework player"
+
+msgid "true"
+msgstr "tak"
